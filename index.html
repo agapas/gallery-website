@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta author='Agnieszka Pas' type='text'>
+
+		<title>John Doe gallery</title>
+
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h1 id="header">Happy Halloween !!</h1>
+		<div id="content">
+			<h2>Example gallery</h2>
+			<div id="wrapper" class="flex-container">
+				<div id="image-wrapper" class="image-flex-container">
+					<button id="previous" type="button" onclick="showPrevious()" disabled><</button>
+					<img id="image-preview" src="images/1.jpg" alt="Design 1 - preview" />
+					<button id="next" type="button" onclick="showNext()">></button>
+				</div>
+				<div id="icons-wrapper" class="icons-flex-container">
+					<img class="icon" src="images/1_small.png" alt="Design 1" onclick="onIconClick(1)" />
+					<img class="icon" src="images/2_small.png" alt="Design 2" onclick="onIconClick(2)" />
+					<img class="icon" src="images/3_small.png" alt="Design 3" onclick="onIconClick(3)" />
+					<img class="icon" src="images/4_small.png" alt="Design 4" onclick="onIconClick(4)" />
+					<img class="icon" src="images/5_small.png" alt="Design 5" onclick="onIconClick(5)" />
+					<img class="icon" src="images/6_small.png" alt="Design 6" onclick="onIconClick(6)" />
+					<img class="icon" src="images/7_small.png" alt="Design 7" onclick="onIconClick(7)" />
+					<img class="icon" src="images/8_small.png" alt="Design 8" onclick="onIconClick(8)" />
+					<img class="icon" src="images/9_small.png" alt="Design 9" onclick="onIconClick(9)" />
+				</div>
+      </div>
+		</div>
+
+		<script>
+			const imagePreview = document.getElementById('image-preview');
+			const icons = document.getElementsByClassName("icon");
+			const previousButton = document.getElementById('previous');
+			const nextButton = document.getElementById('next');
+
+			const updateButtons = (index) => {
+				previousButton.disabled = index === 0 ? true : false;
+				nextButton.disabled = icons.length && index >= icons.length - 1
+					? true
+					: false;
+			};
+
+			const setNewImage = (buttonId) => {
+				const splittedSrc = imagePreview.src.split('images/');
+				const currentNumber = parseInt(splittedSrc[1].split('.')[0]);
+				const newNumber = buttonId === 'previous'
+					? currentNumber - 1
+					: currentNumber + 1;
+				imagePreview.src = `${splittedSrc[0]}images/${newNumber}.jpg`;
+				imagePreview.alt = `Image ${newNumber}`;
+				updateButtons(newNumber - 1);
+			};
+
+			const showPrevious = () => setNewImage('previous');
+			const showNext = () => setNewImage('next');
+
+			const onIconClick = (number) => {
+				const icon = document.getElementsByClassName("icon")[number - 1];
+				imagePreview.src = `${icon.src.split('_small.png')[0]}.jpg`;
+				imagePreview.alt = `Image ${icon.alt.split(' ')[1]}`;
+				updateButtons(number - 1);
+			};
+		</script>
+	</body>
+</html>
