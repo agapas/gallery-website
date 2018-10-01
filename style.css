@@ -4,39 +4,41 @@ body {
   background-image: url(images/background.jpg);
 }
 
+#header {
+  font-family: Georgia, serif;
+  text-shadow: 3px 2px 4px rgba(91, 64, 25, 0.86);
+}
+
 #content {
+  padding: 40px 20px;
   background-color: #f5f5f5cf;
+  box-shadow: 0 0 20px 7px #0000003b;
 }
 
-#content > h2 {
-  margin: 0;
-  padding: 20px 28px 0px;
+.flex-container, .image-flex-container {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-.flex-container,
-.image-flex-container,
 .icons-flex-container {
   display: flex;
-}
-
-.icons-flex-container {
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   overflow: auto;
 }
 
-#wrapper {
-  padding: 20px;
-}
-
 #image-wrapper, #icons-wrapper {
-  max-height: 630px;
+  width: 50%;
   align-items: center;
 }
 
+#icons-wrapper {
+  max-height: 630px;
+}
+
 #image-preview {
-  width: 600px;
-  height: 600px;
+  width: calc(100% - 125px);
+  height: auto;
   padding: 10px;
   border: 1px solid grey;
   border-radius: 2px;
@@ -59,16 +61,68 @@ button:disabled {
 
 .icon {
   width: 200px;
-  height: 200px;
+  height: auto;
   border: 1px solid grey;
   border-radius: 2px;
   background-color: #00000052;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin: 4px;
 }
 
 .icon:hover {
-  opacity: 0.8;
+  opacity: 0.85;
   border-color: #00000099;
   cursor: pointer;
+}
+
+@media only screen and (orientation: portrait),
+(max-width: 786px) and (orientation: landscape) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  .image-flex-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .icons-flex-container {
+    justify-content: flex-start;
+  }
+  #content {
+    padding: 25px;
+  }
+  #image-wrapper, #icons-wrapper, #image-preview {
+    width: 100%;
+  }
+  #image-wrapper {
+    padding-bottom: 20px;
+  }
+  #previous {
+    order: 2;
+  }
+  #next {
+    order: 3;
+  }
+}
+
+@media only screen and (max-width: 1224px) {
+  .icon {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .icon {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .icons-flex-container {
+    flex-wrap: nowrap;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  .icon {
+    width: 50px;
+  }
 }
