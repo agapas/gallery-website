@@ -1,5 +1,6 @@
-# gallery-website
-Simple gallery template made just for fun due to upcoming Halloween. Happy Halloween !!
+# halloween-gallery
+Simple website with gallery example, made just for fun due to upcoming Halloween. Happy Halloween !! </br>
+See it in action on: https://agapas.github.io/gallery-template/
 
 
 ## License
