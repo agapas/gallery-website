@@ -99,6 +99,10 @@ button:disabled {
   .icons-flex-container {
     justify-content: flex-start;
   }
+  #header, #content, #images-source {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
   #content {
     padding: 25px;
   }
@@ -114,6 +118,7 @@ button:disabled {
   }
   #image-preview {
     margin: 0;
+    max-height: none;
   }
   button {
     margin: 10px;
