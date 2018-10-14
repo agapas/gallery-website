@@ -15,23 +15,23 @@
 		<h1 id="header">Happy Halloween !!</h1>
 		<div id="content" class="flex-container">
 			<div id="image-wrapper" class="image-flex-container">
-				<button id="previous" type="button" onclick="showPrevious()" disabled><</button>
-				<img id="image-preview" src="images/1.jpg" alt="Design 1 - preview" />
-				<button id="next" type="button" onclick="showNext()">></button>
+				<button id="previous" type="button" onclick="showPreview('previous')" disabled><</button>
+				<img id="image-preview" src="images/1.jpg" alt="Image preview" />
+				<button id="next" type="button" onclick="showPreview('next')">></button>
 			</div>
 			<div id="icons-wrapper" class="icons-flex-container">
-				<img class="icon" src="images/1_small.png" alt="Design 1" onclick="onIconClick(1)" />
-				<img class="icon" src="images/2_small.png" alt="Design 2" onclick="onIconClick(2)" />
-				<img class="icon" src="images/3_small.png" alt="Design 3" onclick="onIconClick(3)" />
-				<img class="icon" src="images/4_small.png" alt="Design 4" onclick="onIconClick(4)" />
-				<img class="icon" src="images/5_small.png" alt="Design 5" onclick="onIconClick(5)" />
-				<img class="icon" src="images/6_small.png" alt="Design 6" onclick="onIconClick(6)" />
-				<img class="icon" src="images/7_small.png" alt="Design 7" onclick="onIconClick(7)" />
-				<img class="icon" src="images/8_small.png" alt="Design 8" onclick="onIconClick(8)" />
-				<img class="icon" src="images/9_small.png" alt="Design 9" onclick="onIconClick(9)" />
-				<img class="icon" src="images/10_small.png" alt="Design 10" onclick="onIconClick(10)" />
-				<img class="icon" src="images/11_small.png" alt="Design 11" onclick="onIconClick(11)" />
-				<img class="icon" src="images/12_small.png" alt="Design 12" onclick="onIconClick(12)" />
+				<img class="icon" src="images/1.jpg" alt="Icon 1" onclick="onIconClick(1)" />
+				<img class="icon" src="images/2.jpg" alt="Icon 2" onclick="onIconClick(2)" />
+				<img class="icon" src="images/3.jpg" alt="Icon 3" onclick="onIconClick(3)" />
+				<img class="icon" src="images/4.jpg" alt="Icon 4" onclick="onIconClick(4)" />
+				<img class="icon" src="images/5.jpg" alt="Icon 5" onclick="onIconClick(5)" />
+				<img class="icon" src="images/6.jpg" alt="Icon 6" onclick="onIconClick(6)" />
+				<img class="icon" src="images/7.jpg" alt="Icon 7" onclick="onIconClick(7)" />
+				<img class="icon" src="images/8.jpg" alt="Icon 8" onclick="onIconClick(8)" />
+				<img class="icon" src="images/9.jpg" alt="Icon 9" onclick="onIconClick(9)" />
+				<img class="icon" src="images/10.jpg" alt="Icon 10" onclick="onIconClick(10)" />
+				<img class="icon" src="images/11.jpg" alt="Icon 11" onclick="onIconClick(11)" />
+				<img class="icon" src="images/12.jpg" alt="Icon 12" onclick="onIconClick(12)" />
 			</div>
 		</div>
 		<div id="images-source">Source of images: https://pixabay.com/</div>
@@ -49,24 +49,19 @@
 					: false;
 			};
 
-			const setNewImage = (buttonId) => {
+			const showPreview = (buttonId) => {
 				const splittedSrc = imagePreview.src.split('images/');
 				const currentNumber = parseInt(splittedSrc[1].split('.')[0]);
 				const newNumber = buttonId === 'previous'
 					? currentNumber - 1
 					: currentNumber + 1;
 				imagePreview.src = `${splittedSrc[0]}images/${newNumber}.jpg`;
-				imagePreview.alt = `Image ${newNumber}`;
 				updateButtons(newNumber - 1);
 			};
 
-			const showPrevious = () => setNewImage('previous');
-			const showNext = () => setNewImage('next');
-
 			const onIconClick = (number) => {
-				const icon = document.getElementsByClassName("icon")[number - 1];
-				imagePreview.src = `${icon.src.split('_small.png')[0]}.jpg`;
-				imagePreview.alt = `Image ${icon.alt.split(' ')[1]}`;
+				const icon = icons[number - 1];
+				imagePreview.src = icon.src;
 				updateButtons(number - 1);
 			};
 		</script>
