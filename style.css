@@ -1,67 +1,77 @@
+html,
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
   background-image: url(images/background.jpg);
 }
 
+#app {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
 #header {
-  margin: 20px 30px;
+  margin: 20px auto;
   font-family: Georgia, serif;
   text-shadow: 3px 2px 4px rgba(91, 64, 25, 0.86);
 }
 
-#images-source {
-  margin: 2px 30px 22px;
-  padding-left: 2px;
-  color: #fff;
-}
-
 #content {
-  margin: 0 30px;
-  padding: 40px 20px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 80%;
   background-color: #f5f5f5cf;
   box-shadow: 0 0 20px 14px #0000006a;
 }
 
-.flex-container, .image-flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.icons-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow: auto;
-}
-
-#image-wrapper, #icons-wrapper {
-  align-items: center;
-}
-
 #image-wrapper {
-  margin-right: 10px;
-  width: 52%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-#icons-wrapper {
-  width: 48%;
-  max-height: 580px;
-  padding: 5px;
-  border: 1px solid grey;
-}
-
-#image-preview {
-  width: calc(100% - 150px);
-  height: auto;
-  max-height: 568px;
-  margin: 0 10px;
+#image-wrapper img {
   padding: 10px;
+  width: calc(100% - 20px);
   border: 1px solid grey;
   border-radius: 2px;
 }
 
+#icons-wrapper {
+  display: flex;
+  padding: 10px;
+  overflow-x: auto;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+#icons-wrapper img {
+  width: 70px;
+  height: 70px;
+  padding-right: 10px;
+  border: 1px solid transparent;
+}
+
+#icons-wrapper img:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+#images-source {
+  margin: 2px auto 20px;
+  color: #fff;
+}
+
 button {
   padding: 10px;
+  margin: 10px 5px;
+  width: 40px;
+  height: 50px;
   font-size: 22px;
   font-weight: bold;
 }
@@ -74,83 +84,75 @@ button:disabled {
   cursor: default;
 }
 
-.icon {
-  width: 200px;
-  height: auto;
-  border-radius: 2px;
-  margin: 5px;
-}
-
-.icon:hover {
-  opacity: 0.85;
-  border-color: #00000099;
-  cursor: pointer;
-}
-
-@media only screen and (orientation: portrait),
-(max-width: 786px) and (orientation: landscape) {
-  .flex-container {
-    flex-wrap: wrap;
-  }
-  .image-flex-container {
-    flex-wrap: wrap;
+@media only screen and (min-width: 767px) and (max-width: 1024px) and (orientation: portrait) {
+  #app {
     justify-content: center;
   }
-  .icons-flex-container {
-    justify-content: flex-start;
+
+  #header {
+    font-size: xx-large;
   }
-  #header, #content, #images-source {
-    margin-right: 15px;
-    margin-left: 15px;
+}
+
+@media only screen and (min-width: 900px) and (orientation: landscape) {
+  #header {
+    font-size: xx-large;
   }
+
   #content {
-    padding: 25px;
+    display: flex;
+    width: 90%;
   }
-  #image-wrapper, #icons-wrapper, #image-preview {
-    width: 100%;
-  }
+
   #image-wrapper {
-    padding-bottom: 20px;
-    margin-right: 0;
+    margin-right: 10px;
+    max-width: 55%;
+    flex-wrap: nowrap;
+    align-items: center;
   }
-  .icon:last-of-type {
-    padding-right: 10px;
+
+  #image-wrapper img {
+    width: calc(100% - 120px);
   }
-  #image-preview {
-    margin: 0;
-    max-height: none;
-  }
+
   button {
     margin: 10px;
   }
+
   #previous {
+    order: 0;
+  }
+
+  #image-preview {
+    order: 1;
+  }
+
+  #next {
     order: 2;
   }
-  #next {
-    order: 3;
-  }
-}
 
-@media only screen and (max-width: 1224px) {
-  .icon {
-    width: 150px;
+  #icons-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    max-width: 45%;
+    padding: 5px;
+    overflow: hidden;
   }
-}
 
-@media only screen and (max-width: 1024px) {
-  .icon {
-    width: 100px;
+  #icons-wrapper img {
+    width: 30%;
+    height: auto;
+    padding: 5px;
   }
-}
 
-@media only screen and (max-width: 786px) {
-  .icons-flex-container {
-    flex-wrap: nowrap;
+  #icons-wrapper img:hover {
+    background-color: #0000004a;
   }
-}
 
-@media only screen and (max-width : 480px) {
-  .icon {
-    width: 50px;
+  #images-source {
+    margin-left: calc(5% - 15px);
+    width: 90%;
   }
 }

@@ -11,29 +11,31 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1 id="header">Happy Halloween !!</h1>
-    <div id="content" class="flex-container">
-      <div id="image-wrapper" class="image-flex-container">
-        <button id="previous" type="button" onclick="showPreview('previous')" disabled><</button>
-        <img id="image-preview" src="images/1.jpg" alt="Image preview" />
-        <button id="next" type="button" onclick="showPreview('next')">></button>
+    <div id="app">
+      <h2 id="header">Happy Halloween !!</h2>
+      <div id="content" class="flex-container">
+        <div id="image-wrapper" class="image-flex-container">
+          <img id="image-preview" src="images/1.jpg" alt="Image preview" />
+          <button id="previous" type="button" onclick="showPreview('previous')" disabled><</button>
+          <button id="next" type="button" onclick="showPreview('next')">></button>
+        </div>
+        <div id="icons-wrapper" class="icons-flex-container">
+          <img class="icon" src="images/1.jpg" alt="Icon 1" onclick="onIconClick(1)" />
+          <img class="icon" src="images/2.jpg" alt="Icon 2" onclick="onIconClick(2)" />
+          <img class="icon" src="images/3.jpg" alt="Icon 3" onclick="onIconClick(3)" />
+          <img class="icon" src="images/4.jpg" alt="Icon 4" onclick="onIconClick(4)" />
+          <img class="icon" src="images/5.jpg" alt="Icon 5" onclick="onIconClick(5)" />
+          <img class="icon" src="images/6.jpg" alt="Icon 6" onclick="onIconClick(6)" />
+          <img class="icon" src="images/7.jpg" alt="Icon 7" onclick="onIconClick(7)" />
+          <img class="icon" src="images/8.jpg" alt="Icon 8" onclick="onIconClick(8)" />
+          <img class="icon" src="images/9.jpg" alt="Icon 9" onclick="onIconClick(9)" />
+          <img class="icon" src="images/10.jpg" alt="Icon 10" onclick="onIconClick(10)" />
+          <img class="icon" src="images/11.jpg" alt="Icon 11" onclick="onIconClick(11)" />
+          <img class="icon" src="images/12.jpg" alt="Icon 12" onclick="onIconClick(12)" />
+        </div>
       </div>
-      <div id="icons-wrapper" class="icons-flex-container">
-        <img class="icon" src="images/1.jpg" alt="Icon 1" onclick="onIconClick(1)" />
-        <img class="icon" src="images/2.jpg" alt="Icon 2" onclick="onIconClick(2)" />
-        <img class="icon" src="images/3.jpg" alt="Icon 3" onclick="onIconClick(3)" />
-        <img class="icon" src="images/4.jpg" alt="Icon 4" onclick="onIconClick(4)" />
-        <img class="icon" src="images/5.jpg" alt="Icon 5" onclick="onIconClick(5)" />
-        <img class="icon" src="images/6.jpg" alt="Icon 6" onclick="onIconClick(6)" />
-        <img class="icon" src="images/7.jpg" alt="Icon 7" onclick="onIconClick(7)" />
-        <img class="icon" src="images/8.jpg" alt="Icon 8" onclick="onIconClick(8)" />
-        <img class="icon" src="images/9.jpg" alt="Icon 9" onclick="onIconClick(9)" />
-        <img class="icon" src="images/10.jpg" alt="Icon 10" onclick="onIconClick(10)" />
-        <img class="icon" src="images/11.jpg" alt="Icon 11" onclick="onIconClick(11)" />
-        <img class="icon" src="images/12.jpg" alt="Icon 12" onclick="onIconClick(12)" />
-      </div>
+      <div id="images-source">Source of images: https://pixabay.com/</div>
     </div>
-    <div id="images-source">Source of images: https://pixabay.com/</div>
     <script>
       const imagePreview = document.getElementById('image-preview');
       const icons = document.getElementsByClassName("icon");
